@@ -2,7 +2,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "@mdc/*": ["projects/mdc/src/lib/*"]
+    }
   },
   "files": [
     "src/main.ts",
