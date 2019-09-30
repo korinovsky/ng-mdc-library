@@ -7,7 +7,9 @@
     "build": "ng build",
     "build:mdc": "ng build mdc",
     "test": "ng test",
+    "test:mdc": "ng test mdc",
     "lint": "ng lint",
+    "lint:mdc": "ng lint mdc",
     "e2e": "ng e2e"
   },
   "private": true,
