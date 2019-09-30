@@ -12,7 +12,6 @@ export enum ButtonType {
 @Component({
   selector: 'button[mdcButton], a[mdcButton]',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
