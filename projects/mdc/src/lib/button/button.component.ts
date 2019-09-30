@@ -18,6 +18,8 @@ export enum ButtonType {
 export class ButtonComponent {
   @HostBinding('class.mdc-button') buttonClass = true;
   @HostBinding('class.mdc-button--dense') denseClass = false;
+  @Input() icon;
+  @Input() trailingIcon;
   private type;
 
   constructor(
