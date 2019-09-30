@@ -2,9 +2,10 @@
   "name": "mdc-library",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
-    "build": "ng build mdc",
+    "start:prod": "ng serve --configuration=production",
+    "build": "ng build",
+    "build:mdc": "ng build mdc",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
