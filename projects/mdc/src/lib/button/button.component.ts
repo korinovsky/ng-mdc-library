@@ -1,4 +1,7 @@
-import {ChangeDetectionStrategy, Component, HostBinding, Inject, InjectionToken, Input, Optional, ViewEncapsulation} from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, InjectionToken, Input, Optional, ViewEncapsulation
+} from '@angular/core';
+import {RippleComponent} from '../ripple/ripple.component';
 
 export const MDC_DEFAULT_BUTTON_TYPE = new InjectionToken<ButtonType>('MDC_DEFAULT_BUTTON_TYPE');
 
@@ -15,7 +18,7 @@ export enum ButtonType {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent {
+export class ButtonComponent extends RippleComponent {
   @HostBinding('class.mdc-button') buttonClass = true;
   @HostBinding('class.mdc-button--dense') denseClass = false;
   @Input() icon;
@@ -25,8 +28,10 @@ export class ButtonComponent {
   constructor(
     @Optional()
     @Inject(MDC_DEFAULT_BUTTON_TYPE)
-    private readonly defaultButtonType: ButtonType
+    private readonly defaultButtonType: ButtonType,
+    elementRef: ElementRef,
   ) {
+    super(elementRef);
     if (this.defaultButtonType === null) {
       this.defaultButtonType = ButtonType.Text;
     }
