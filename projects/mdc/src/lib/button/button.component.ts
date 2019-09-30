@@ -1,24 +1,36 @@
-import {Component, HostBinding, Input, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, Inject, InjectionToken, Input, Optional, ViewEncapsulation} from '@angular/core';
 
-enum ButtonType {
+export const MDC_DEFAULT_BUTTON_TYPE = new InjectionToken<ButtonType>('MDC_DEFAULT_BUTTON_TYPE');
+
+export enum ButtonType {
   Text,
   Raised,
   Unelevated,
   Outlined,
 }
 
-const defaultButtonType = ButtonType.Text;
-
 @Component({
   selector: 'button[mdcButton], a[mdcButton]',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
   @HostBinding('class.mdc-button') buttonClass = true;
   @HostBinding('class.mdc-button--dense') denseClass = false;
-  private type = defaultButtonType;
+  private type;
+
+  constructor(
+    @Optional()
+    @Inject(MDC_DEFAULT_BUTTON_TYPE)
+    private readonly defaultButtonType: ButtonType
+  ) {
+    if (this.defaultButtonType === null) {
+      this.defaultButtonType = ButtonType.Text;
+    }
+    this.type = this.defaultButtonType;
+  }
 
   @Input()
   set text(value: boolean) {
@@ -62,6 +74,6 @@ export class ButtonComponent {
 
 
   private setType(type: ButtonType, value: boolean) {
-    this.type = value !== false ? type : defaultButtonType;
+    this.type = value !== false ? type : this.defaultButtonType;
   }
 }
