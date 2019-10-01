@@ -33,7 +33,9 @@
               "node_modules/material-icons/iconfont/material-icons.css"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["./node_modules"]
+              "includePaths": [
+                "./node_modules"
+              ]
             },
             "scripts": []
           },
@@ -169,6 +171,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "mdc-library"
 }

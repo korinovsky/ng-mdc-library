@@ -5,9 +5,8 @@
     "start": "ng serve",
     "start:prod": "ng serve --prod",
     "build": "ng build",
-    "build:prod": "ng build --prod --base-href /ng-mdc-library/",
+    "build:prod": "ng build --prod --base-href=/ng-mdc-library/ --output-path=docs",
     "build:mdc": "ng build mdc",
-    "deploy": "npx ngh --dir dist/mdc-library",
     "test": "ng test",
     "test:mdc": "ng test mdc",
     "lint": "ng lint",
@@ -27,7 +26,6 @@
     "@material/button": "^3.2.0",
     "@material/dialog": "^3.2.0",
     "@material/ripple": "^3.2.0",
-    "angular-cli-ghpages": "^0.6.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
