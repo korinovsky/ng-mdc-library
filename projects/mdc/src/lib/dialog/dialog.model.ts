@@ -23,7 +23,7 @@ export class Dialog extends MDCDialog {
   }
 
   getInitialFocusEl_() {
-    return this.root_.querySelector(`[${strings.BUTTON_DEFAULT_ATTRIBUTE}]`);
+    return this.root_.querySelector(`[${strings.INITIAL_FOCUS_ATTRIBUTE}]`);
   }
 
 }
