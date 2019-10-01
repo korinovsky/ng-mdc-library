@@ -5,12 +5,14 @@ import {AppComponent} from './app.component';
 import {ButtonModule} from '@mdc/button/button.module';
 import {ButtonType, MDC_DEFAULT_BUTTON_TYPE} from '@mdc/button/button.component';
 import {DialogModule} from '@mdc/dialog/dialog.module';
+import {IconModule} from '@mdc/icon/icon.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    IconModule
   ],
   declarations: [
     AppComponent

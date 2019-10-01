@@ -11,7 +11,7 @@ import {inputBooleanValue} from '../../utils/utils';
 })
 export class DialogButtonComponent extends ButtonComponent {
   @HostBinding('class.mdc-button__button') buttonButtonClass = true;
-  @HostBinding(`attr.${strings.ACTION_ATTRIBUTE}`) action: string;
+  @HostBinding(`attr.data-mdc-dialog-action`) action: string;
 
   @Input()
   set mdcDialogButton(value: string) {

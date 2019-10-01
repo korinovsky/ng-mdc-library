@@ -9,7 +9,7 @@ import {ButtonIconDirective} from './icon/icon.directive';
   ],
   declarations: [
     ButtonComponent,
-    ButtonIconDirective
+    ButtonIconDirective,
   ],
   exports: [
     ButtonComponent
