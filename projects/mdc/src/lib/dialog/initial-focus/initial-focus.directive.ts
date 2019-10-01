@@ -6,14 +6,10 @@ import {inputBooleanValue} from '../../utils/utils';
   selector: '[mdcDialogInitialFocus]'
 })
 export class DialogInitialFocusDirective {
-  private nativeElement: HTMLElement;
-
-  constructor(private elementRef: ElementRef) {
-    this.nativeElement = elementRef.nativeElement;
-  }
+  constructor(private elementRef: ElementRef) {}
 
   @Input()
   set mdcDialogInitialFocus(value: boolean) {
-    this.nativeElement.toggleAttribute(strings.INITIAL_FOCUS_ATTRIBUTE, inputBooleanValue(value));
+    this.elementRef.nativeElement.toggleAttribute(strings.INITIAL_FOCUS_ATTRIBUTE, inputBooleanValue(value));
   }
 }

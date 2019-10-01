@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, ElementRef, EventEmitter, HostBinding, Output} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, EventEmitter, Output} from '@angular/core';
 import {Dialog} from './dialog.model';
 
 @Component({
@@ -6,16 +6,18 @@ import {Dialog} from './dialog.model';
   templateUrl: './dialog.component.html'
 })
 export class DialogComponent implements AfterContentInit {
-  @HostBinding('class.mdc-dialog') dialogClass = true;
-  @HostBinding('attr.role') role = 'dialog';
-  @HostBinding('attr.aria-modal') ariaModal = true;
   @Output() opening: EventEmitter<null>;
   @Output() opened: EventEmitter<null>;
   @Output() closing: EventEmitter<string>;
   @Output() closed: EventEmitter<string>;
   private dialog: Dialog;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) {
+    const nativeElement = this.elementRef.nativeElement as Element;
+    nativeElement.classList.add('mdc-dialog');
+    nativeElement.setAttribute('role', 'dialog');
+    nativeElement.setAttribute('aria-modal', 'true');
+  }
 
   ngAfterContentInit(): void {
     this.dialog = new Dialog(this.elementRef.nativeElement);

@@ -10,7 +10,6 @@ import {inputBooleanValue} from '../../utils/utils';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogButtonComponent extends ButtonComponent {
-  @HostBinding('class.mdc-button__button') buttonButtonClass = true;
   @HostBinding(`attr.data-mdc-dialog-action`) action: string;
 
   @Input()
@@ -25,6 +24,7 @@ export class DialogButtonComponent extends ButtonComponent {
     elementRef: ElementRef,
   ) {
     super(defaultButtonType, elementRef);
+    this.nativeElement.classList.add('mdc-dialog__button');
   }
 
   @Input()

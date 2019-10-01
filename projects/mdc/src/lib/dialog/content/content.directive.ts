@@ -1,8 +1,10 @@
-import {Directive, HostBinding} from '@angular/core';
+import {Directive, ElementRef} from '@angular/core';
 
 @Directive({
   selector: '[mdcDialogContent]'
 })
 export class DialogContentDirective {
-  @HostBinding('class.mdc-dialog__content') contentClass = true;
+  constructor(elementRef: ElementRef) {
+    (elementRef.nativeElement as Element).classList.add('mdc-dialog__content');
+  }
 }

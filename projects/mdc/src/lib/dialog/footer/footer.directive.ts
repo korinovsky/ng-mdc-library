@@ -1,8 +1,10 @@
-import {Directive, HostBinding} from '@angular/core';
+import {Directive, ElementRef} from '@angular/core';
 
 @Directive({
   selector: '[mdcDialogFooter]'
 })
 export class DialogFooterDirective {
-  @HostBinding('class.mdc-dialog__actions') footerClass = true;
+  constructor(elementRef: ElementRef) {
+    (elementRef.nativeElement as Element).classList.add('mdc-dialog__actions');
+  }
 }
