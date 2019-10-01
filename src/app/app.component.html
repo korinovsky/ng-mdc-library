@@ -8,3 +8,30 @@
 <a mdcButton outlined href="#" (click)="false">Link</a>
 <button mdcButton [icon]="'favorite'">Icon</button>
 <button mdcButton [trailingIcon]="'favorite'">Trailing icon</button>
+
+<h3>Dialogs</h3>
+<button mdcButton (click)="openDialog(dialog1)">Accept on Enter</button>
+<button mdcButton (click)="openDialog(dialog2)">Initial focus</button>
+
+<div mdcDialog #dialog1>
+  <h2 mdcDialogTitle>Dialog title</h2>
+  <div mdcDialogContent>
+    <label for="input">Set value</label>
+    <input name="input" id="input" mdcDialogInitialFocus>
+  </div>
+  <footer mdcDialogFooter>
+    <button mdcDialogButton="accept" text default>Accept</button>
+  </footer>
+</div>
+
+<div mdcDialog #dialog2>
+  <h2 mdcDialogTitle>Dialog title</h2>
+  <div mdcDialogContent>
+    <label for="input2">Set value</label>
+    <input name="input" id="input2">
+  </div>
+  <footer mdcDialogFooter>
+    <button mdcDialogButton text>Decline</button>
+    <button mdcDialogButton="accept" text mdcDialogInitialFocus>Accept</button>
+  </footer>
+</div>

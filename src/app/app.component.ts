@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {DialogComponent} from '@mdc/dialog/dialog.component';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +8,10 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  openDialog(dialog: DialogComponent) {
+    dialog.open();
+    dialog.closed
+      .pipe(first())
+      .subscribe(action => console.log(action));
+  }
 }

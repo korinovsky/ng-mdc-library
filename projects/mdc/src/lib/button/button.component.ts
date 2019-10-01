@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, InjectionToken, Input, Optional, ViewEncapsulation
 } from '@angular/core';
 import {RippleComponent} from '../ripple/ripple.component';
+import {inputBooleanValue} from '../utils/utils';
 
 export const MDC_DEFAULT_BUTTON_TYPE = new InjectionToken<ButtonType>('MDC_DEFAULT_BUTTON_TYPE');
 
@@ -26,9 +27,7 @@ export class ButtonComponent extends RippleComponent {
   private type;
 
   constructor(
-    @Optional()
-    @Inject(MDC_DEFAULT_BUTTON_TYPE)
-    private readonly defaultButtonType: ButtonType,
+    @Optional() @Inject(MDC_DEFAULT_BUTTON_TYPE) private readonly defaultButtonType: ButtonType,
     elementRef: ElementRef,
   ) {
     super(elementRef);
@@ -75,11 +74,11 @@ export class ButtonComponent extends RippleComponent {
 
   @Input()
   set dense(value: boolean) {
-    this.denseClass = value !== false;
+    this.denseClass = inputBooleanValue(value);
   }
 
 
   private setType(type: ButtonType, value: boolean) {
-    this.type = value !== false ? type : this.defaultButtonType;
+    this.type = inputBooleanValue(value) ? type : this.defaultButtonType;
   }
 }

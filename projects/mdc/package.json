@@ -5,6 +5,7 @@
     "@angular/common": "^8.2.8",
     "@angular/core": "^8.2.8",
     "@material/button": "^3.2.0",
+    "@material/dialog": "^3.2.0",
     "@material/ripple": "^3.2.0"
   }
 }
