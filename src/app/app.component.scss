@@ -1,7 +1,7 @@
-.mdc-button {
+:host > .mdc-button {
   margin-bottom: 8px;
 
-  & + & {
+  & + .mdc-button {
     margin-left: 8px;
   }
 }

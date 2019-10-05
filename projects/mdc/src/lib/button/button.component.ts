@@ -14,6 +14,7 @@ export enum ButtonType {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'button[mdcButton], a[mdcButton]',
   templateUrl: './button.component.html',
   encapsulation: ViewEncapsulation.None,
@@ -35,6 +36,10 @@ export class ButtonComponent extends RippleComponent {
       this.defaultButtonType = ButtonType.Text;
     }
     this.type = this.defaultButtonType;
+  }
+
+  get nativeElement() {
+    return this.elementRef.nativeElement as HTMLButtonElement;
   }
 
   @Input()

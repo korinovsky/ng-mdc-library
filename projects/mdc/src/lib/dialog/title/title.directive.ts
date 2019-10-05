@@ -4,7 +4,11 @@ import {Directive, ElementRef} from '@angular/core';
   selector: '[mdcDialogTitle]'
 })
 export class DialogTitleDirective {
-  constructor(elementRef: ElementRef) {
-    (elementRef.nativeElement as Element).classList.add('mdc-dialog__title');
+  constructor(private elementRef: ElementRef) {
+    this.nativeElement.classList.add('mdc-dialog__title');
+  }
+
+  get nativeElement() {
+    return this.elementRef.nativeElement as HTMLElement;
   }
 }

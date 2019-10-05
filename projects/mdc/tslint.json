@@ -9,9 +9,17 @@
     ],
     "component-selector": [
       true,
-      "attribute",
+      "element",
       "mdc",
-      "camelCase"
-    ]
+      "kebab-case"
+    ],
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case"
+      ]
+    }
   }
 }

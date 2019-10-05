@@ -1,6 +1,14 @@
-<div class="mdc-dialog__container">
-  <div class="mdc-dialog__surface">
-    <ng-content></ng-content>
+<div
+  aria-modal="true"
+  class="mdc-dialog"
+  role="dialog"
+  id="mdc-dialog-{{id}}"
+  #dialog
+>
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <ng-content></ng-content>
+    </div>
   </div>
+  <div class="mdc-dialog__scrim"></div>
 </div>
-<div class="mdc-dialog__scrim"></div>

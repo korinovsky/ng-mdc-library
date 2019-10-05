@@ -4,7 +4,11 @@ import {Directive, ElementRef} from '@angular/core';
   selector: '[mdcDialogContent]'
 })
 export class DialogContentDirective {
-  constructor(elementRef: ElementRef) {
-    (elementRef.nativeElement as Element).classList.add('mdc-dialog__content');
+  constructor(private elementRef: ElementRef) {
+    this.nativeElement.classList.add('mdc-dialog__content');
+  }
+
+  get nativeElement() {
+    return this.elementRef.nativeElement as HTMLElement;
   }
 }
