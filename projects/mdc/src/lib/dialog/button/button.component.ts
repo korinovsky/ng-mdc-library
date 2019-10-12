@@ -1,8 +1,10 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Inject, Input, Optional, ViewEncapsulation} from '@angular/core';
-import {ButtonComponent, ButtonType, MDC_DEFAULT_BUTTON_TYPE} from '../../button/button.component';
+import {ChangeDetectionStrategy, Component, ElementRef, Inject, InjectionToken, Input, Optional, ViewEncapsulation} from '@angular/core';
+import {ButtonComponent, ButtonType} from '../../button/button.component';
 import {strings} from '@material/dialog/constants';
 import {inputBooleanValue} from '../../utils/utils';
 import MDCDialogFoundation from '@material/dialog/foundation';
+
+export const MDC_DIALOG_DEFAULT_BUTTON_TYPE = new InjectionToken<ButtonType>('MDC_DIALOG_DEFAULT_BUTTON_TYPE');
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -13,7 +15,7 @@ import MDCDialogFoundation from '@material/dialog/foundation';
 })
 export class DialogButtonComponent extends ButtonComponent {
   constructor(
-    @Optional() @Inject(MDC_DEFAULT_BUTTON_TYPE) defaultButtonType: ButtonType,
+    @Optional() @Inject(MDC_DIALOG_DEFAULT_BUTTON_TYPE) defaultButtonType: ButtonType,
     elementRef: ElementRef,
   ) {
     super(defaultButtonType, elementRef);
