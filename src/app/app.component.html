@@ -8,14 +8,15 @@
 <a mdcButton outlined href="#" (click)="false">Link</a>
 <button mdcButton [icon]="'favorite'">Icon</button>
 <button mdcButton [trailingIcon]="'favorite'">Trailing icon</button>
+<button mdcButton disabled>Disabled</button>
 
 <h3>Icons</h3>
 <i mdcIcon>favorite</i>
 
 <h3>Dialogs</h3>
-<button mdcButton (click)="openDialog(dialog1)">Accept on Enter</button>
-<button mdcButton (click)="openDialog(dialog2)">Initial focus</button>
-<button mdcButton (click)="openDialog(dialog3)">Scrollable content</button>
+<button mdcButton (click)="dialog1.open()">Accept on Enter</button>
+<button mdcButton (click)="dialog2.open()">Initial focus</button>
+<button mdcButton (click)="dialog3.open()">Scrollable content</button>
 
 <mdc-dialog #dialog1>
   <h2 mdcDialogTitle>Dialog title</h2>
