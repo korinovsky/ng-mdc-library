@@ -21,8 +21,6 @@ export enum ButtonType {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent extends RippleComponent {
-  @HostBinding('class.mdc-button') buttonClass = true;
-  @HostBinding('class.mdc-button--dense') denseClass = false;
   @Input() icon;
   @Input() trailingIcon;
   private type;
@@ -32,6 +30,7 @@ export class ButtonComponent extends RippleComponent {
     elementRef: ElementRef,
   ) {
     super(elementRef);
+    this.nativeElement.classList.add('mdc-button');
     if (this.defaultButtonType === null) {
       this.defaultButtonType = ButtonType.Text;
     }
@@ -79,7 +78,7 @@ export class ButtonComponent extends RippleComponent {
 
   @Input()
   set dense(value: boolean) {
-    this.denseClass = inputBooleanValue(value);
+    this.nativeElement.classList.toggle('mdc-button--dense', inputBooleanValue(value));
   }
 
 

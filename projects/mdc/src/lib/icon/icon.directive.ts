@@ -1,9 +1,15 @@
-import {Directive, HostBinding} from '@angular/core';
+import {Directive, ElementRef} from '@angular/core';
 
 @Directive({
   selector: '[mdcIcon]'
 })
 export class IconDirective {
-  @HostBinding('class.material-icons') iconsClass = true;
-  @HostBinding('attr.aria-hidden') ariaHidden = true;
+  constructor(private elementRef: ElementRef) {
+    this.nativeElement.classList.add('material-icons');
+    this.nativeElement.setAttribute('aria-hidden', 'true');
+  }
+
+  get nativeElement() {
+    return this.elementRef.nativeElement as HTMLElement;
+  }
 }
